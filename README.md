@@ -67,7 +67,9 @@ Run the script in a terminal:
 python3 get_chat_id.py
 ```
 
-Look for the chat object inside the message object in the JSON response. The id field within the chat object is your chat_id and keep it for later.
+Look for the chat object inside the message object in the JSON response. The id field within the chat object is your chat_id.
+
+Keep your YOUR_BOT_TOKEN and YOUR_CHAT_ID for the adaptation of the main "py_guard.py" file.
 
 
 ### 5. Download Model Files
