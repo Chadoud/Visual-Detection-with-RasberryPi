@@ -49,6 +49,12 @@ d) Once created, you will receive an API token. Keep this token secure.
 
 ### 4. Obtain Your Telegram Chat ID
 
+Run:
+```bash
+nano get_chat_id.py
+```
+
+Paste in the following code:
 ```python
 import requests
 
@@ -61,6 +67,7 @@ data = response.json()
 
 print(data)
 ```
+Press x
 
 Run the script in a terminal:
 ```bash
@@ -69,7 +76,7 @@ python3 get_chat_id.py
 
 Look for the chat object inside the message object in the JSON response. The id field within the chat object is your chat_id.
 
-Keep your YOUR_BOT_TOKEN and YOUR_CHAT_ID for the adaptation of the main "py_guard.py" file.
+Keep YOUR_BOT_TOKEN (API Token) and YOUR_CHAT_ID (chat_id value) for the adaptation of the main "py_guard.py" file.
 
 
 ### 5. Download Model Files
@@ -84,10 +91,6 @@ wget https://raw.githubusercontent.com/Chadoud/Visual-Detection-with-RasberryPi/
 wget https://github.com/Chadoud/Visual-Detection-with-RasberryPi/raw/main/frozen_inference_graph.pb
 ```
 
-Create and adapt the main file in the same "Object_Detection" directory:
-```bash
-nano py_guard.py
-```
 
 Paste the following script in the "py_guard.py" file:
 
@@ -98,7 +101,7 @@ from picamera2 import Picamera2
 import time
 import requests
 
-# Telegram bot API token and chat ID to replace with your values
+# Telegram bot API token and chat ID (replace with your values)
 TELEGRAM_BOT_TOKEN = 'YOUR_BOT_TOKEN'
 TELEGRAM_CHAT_ID = 'YOUR_CHAT_ID'
 
@@ -114,7 +117,6 @@ def send_telegram_message(message):
 # Initialize variables for detection timing
 detection_start_time = None
 detected_for_5_seconds = False
-detected_for_5_minutes = False
 
 # Import Open-CV extra functionalities
 users  = []
@@ -122,13 +124,13 @@ users.append(os.getlogin())
 
 # This is to pull the information about what each object is called
 classNames = []
-classFile = f"/home/{users[0]}/Desktop/Object_Detection/coco.names"
+classFile = f"/home/{users[0]}/Desktop/Object_Detection_Files/coco.names"
 with open(classFile, "rt") as f:
     classNames = f.read().rstrip("\n").split("\n")
 
 # This is to pull the information about what each object should look like
-configPath = f"/home/{users[0]}/Desktop/Object_Detection/ssd_mobilenet_v3_large_coco_2020_01_14.pbtxt"
-weightsPath = f"/home/{users[0]}/Desktop/Object_Detection/frozen_inference_graph.pb"
+configPath = f"/home/{users[0]}/Desktop/Object_Detection_Files/ssd_mobilenet_v3_large_coco_2020_01_14.pbtxt"
+weightsPath = f"/home/{users[0]}/Desktop/Object_Detection_Files/frozen_inference_graph.pb"
 
 # Set up detection model
 net = cv2.dnn_DetectionModel(weightsPath, configPath)
@@ -179,7 +181,6 @@ if __name__ == "__main__":
         else:
             detection_start_time = None
             detected_for_5_seconds = False
-            detected_for_5_minutes = False
         
         cv2.imshow("Output", img)
         k = cv2.waitKey(200)
@@ -190,17 +191,7 @@ if __name__ == "__main__":
 
 
 
-Download and paste the following files in the "Object_Detection" directory:
-
--ssd_mobilenet_v3_large_coco_2020_01_14.pbtxt
-
--frozen_inference_graph.pb
-
--coco.names
-
-
-
-Personalise your model: 
+## Personalise your model in the "py_guard.py" file: 
 As the model is pretrained, you can find all the detectable objects in the coco.names file and
 addapt the detection model by changing the "objects" value contained in the "getObjects" function. 
 
