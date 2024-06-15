@@ -37,9 +37,13 @@ libcamera-still -o test.jpg
 
 
 ### 3. Set Up the Telegram Bot
+
 a) Open Telegram and search for the "BotFather".
+
 b) Start a chat with the BotFather and use the command /newbot to create a new bot.
+
 c) Follow the instructions to set a name and username for your bot.
+
 d) Once created, you will receive an API token. Keep this token secure.
 
 
