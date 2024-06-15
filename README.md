@@ -74,11 +74,14 @@ Keep your YOUR_BOT_TOKEN and YOUR_CHAT_ID for the adaptation of the main "py_gua
 
 ### 5. Download Model Files
 
-Set up the files:
+Download the files:
 ```bash
 cd Desktop
-mkdir Object_Detection
-cd Object_Detection
+mkdir Object_Detection_Files
+cd Object_Detection_Files
+wget https://raw.githubusercontent.com/Chadoud/Visual-Detection-with-RasberryPi/main/coco.names
+wget https://raw.githubusercontent.com/Chadoud/Visual-Detection-with-RasberryPi/main/ssd_mobilenet_v3_large_coco_2020_01_14.pbtxt
+wget https://github.com/Chadoud/Visual-Detection-with-RasberryPi/raw/main/frozen_inference_graph.pb
 ```
 
 Create and adapt the main file in the same "Object_Detection" directory:
