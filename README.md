@@ -67,7 +67,7 @@ data = response.json()
 
 print(data)
 ```
-Press x
+Press "x" to save, then "y" and enter to save changes
 
 Run the script in a terminal:
 ```bash
