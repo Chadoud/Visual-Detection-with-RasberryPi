@@ -1,5 +1,9 @@
 # The PiGuard - Video Surveillance with Raspberry Pi and Telegram Notifications
 
+![mainpic](https://github.com/Chadoud/Visual-Detection-with-RasberryPi/assets/93930441/9278d049-53f9-4073-9e79-b1c1b27999ad)
+
+
+
 ## Overview
 PiGuard is a project designed to use a Raspberry Pi and a camera to monitor a specified area, such as a waiting room. The system uses OpenCV and a pre-trained deep learning model to detect the presence of a person and sends notifications via Telegram when someone has been standing in the area for 5 seconds and again after 5 minutes.
 
