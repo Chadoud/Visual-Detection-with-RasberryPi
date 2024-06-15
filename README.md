@@ -66,20 +66,24 @@ Run the script in a terminal:
 ```bash
 python3 get_chat_id.py
 ```
+
 Look for the chat object inside the message object in the JSON response. The id field within the chat object is your chat_id.
 
+
 ### 5. Download Model Files
-Download the following file:
 
-coco.names
+Move to your desktop with:
+```bash
+cd Desktop
+```
 
-ssd_mobilenet_v3_large_coco_2020_01_14.pbtxt
+Create and edit the main file:
+```bash
+mkdir py_guard.py
+sudo nano py_guard.py
+```
 
-frozen_inference_graph.pb
-
-### 6. Create the Detection Script
-
-Create a Python script (pi_guard.py) and add the following code:
+Paste the script:
 
 ```python
 import cv2
@@ -178,6 +182,17 @@ if __name__ == "__main__":
             cv2.destroyAllWindows()
 ```
 
+
+Download the following file:
+
+coco.names
+
+ssd_mobilenet_v3_large_coco_2020_01_14.pbtxt
+
+frozen_inference_graph.pb
+
+
+
 As the model is pretrained, you can find all the detectable objects in the coco.s file and
 addapt the detection model by changing the "objects" value contained in the "getObjects" function. 
 
@@ -186,7 +201,7 @@ for example:
 
 def getObjects(img, thres, nms, draw=True, objects=["dog"])
 
-### 7. Run the Script
+### 6. Run the Script
 Execute your script to start monitoring:
 
 ``` bash 
