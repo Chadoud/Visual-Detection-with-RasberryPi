@@ -46,6 +46,8 @@ c) Follow the instructions to set a name and username for your bot.
 
 d) Once created, you will receive an API token. Keep this token secure.
 
+c) Send a random message to your bot.
+
 
 ### 4. Obtain Your Telegram Chat ID
 
@@ -67,7 +69,7 @@ data = response.json()
 
 print(data)
 ```
-Press "x" to save, then "y" and enter to save changes
+Press "ctlr+x" to save, then "y" and "Enter" to save changes
 
 Run the script in a terminal:
 ```bash
