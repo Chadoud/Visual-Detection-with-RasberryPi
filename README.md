@@ -67,23 +67,31 @@ Run the script in a terminal:
 python3 get_chat_id.py
 ```
 
-Look for the chat object inside the message object in the JSON response. The id field within the chat object is your chat_id.
+Look for the chat object inside the message object in the JSON response. The id field within the chat object is your chat_id and keep it for later.
 
 
 ### 5. Download Model Files
 
-Move to your desktop with:
+Set up the files:
 ```bash
 cd Desktop
+mkdir Object_Detection
+cd Object_Detection
 ```
 
-Create and edit the main file:
+Download and paste those files in the "Object_Detection" directory:
+
+ssd_mobilenet_v3_large_coco_2020_01_14.pbtxt
+
+frozen_inference_graph.pb
+
+
+Create and adapt the main file in the same "Object_Detection" directory:
 ```bash
-mkdir py_guard.py
-sudo nano py_guard.py
+nano py_guard.py
 ```
 
-Paste the script:
+Paste the following script in the "py_guard.py" file:
 
 ```python
 import cv2
@@ -116,13 +124,13 @@ users.append(os.getlogin())
 
 # This is to pull the information about what each object is called
 classNames = []
-classFile = f"/home/{users[0]}/Desktop/Object_Detection_Files/coco.names"
+classFile = f"/home/{users[0]}/Desktop/Object_Detection/coco.names"
 with open(classFile, "rt") as f:
     classNames = f.read().rstrip("\n").split("\n")
 
 # This is to pull the information about what each object should look like
-configPath = f"/home/{users[0]}/Desktop/Object_Detection_Files/ssd_mobilenet_v3_large_coco_2020_01_14.pbtxt"
-weightsPath = f"/home/{users[0]}/Desktop/Object_Detection_Files/frozen_inference_graph.pb"
+configPath = f"/home/{users[0]}/Desktop/Object_Detection/ssd_mobilenet_v3_large_coco_2020_01_14.pbtxt"
+weightsPath = f"/home/{users[0]}/Desktop/Object_Detection/frozen_inference_graph.pb"
 
 # Set up detection model
 net = cv2.dnn_DetectionModel(weightsPath, configPath)
