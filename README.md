@@ -81,13 +81,6 @@ mkdir Object_Detection
 cd Object_Detection
 ```
 
-Download and paste those files in the "Object_Detection" directory:
-
-ssd_mobilenet_v3_large_coco_2020_01_14.pbtxt
-
-frozen_inference_graph.pb
-
-
 Create and adapt the main file in the same "Object_Detection" directory:
 ```bash
 nano py_guard.py
@@ -193,23 +186,27 @@ if __name__ == "__main__":
 ```
 
 
-Download the following file:
 
-coco.names
+Download and paste the following files in the "Object_Detection" directory:
 
-ssd_mobilenet_v3_large_coco_2020_01_14.pbtxt
+-ssd_mobilenet_v3_large_coco_2020_01_14.pbtxt
 
-frozen_inference_graph.pb
+-frozen_inference_graph.pb
+
+-coco.names
 
 
 
-As the model is pretrained, you can find all the detectable objects in the coco.s file and
+Personalise your model: 
+As the model is pretrained, you can find all the detectable objects in the coco.names file and
 addapt the detection model by changing the "objects" value contained in the "getObjects" function. 
-
 
 for example: 
 
 def getObjects(img, thres, nms, draw=True, objects=["dog"])
+
+
+
 
 ### 6. Run the Script
 Execute your script to start monitoring:
