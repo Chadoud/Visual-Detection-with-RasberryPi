@@ -5,10 +5,10 @@
 
 
 ## Overview
-PiGuard is a project designed to use a Raspberry Pi and a camera to monitor a specified area, such as a waiting room. The system uses OpenCV and a pre-trained deep learning model to detect the presence of a person and sends notifications via Telegram when someone has been standing in the area for 5 seconds and again after 5 minutes.
+PiGuard is a project designed to use a Raspberry Pi and a camera to monitor a specified area, such as a waiting room. The system uses OpenCV and a pre-trained deep learning model to detect the presence of a person and sends notifications via Telegram when someone has been standing in the area for 3 seconds and can be adapted for different time laps and subjects such as animals, objects, ...
 
 ## Features
-- Real-time person detection using OpenCV and TensorFlow models.
+- Real-time detection using OpenCV and TensorFlow models.
 - Sends notifications via Telegram when a person is detected for specified durations.
 - Configurable detection thresholds and notification intervals.
 
