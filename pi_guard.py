@@ -79,13 +79,12 @@ if __name__ == "__main__":
                 detection_start_time = time.time()
             elapsed_time = time.time() - detection_start_time
             
-            if elapsed_time >= 5 and not detected_for_5_seconds:
-                send_telegram_message("Person detected for 5 seconds!")
-                detected_for_5_seconds = True
+            if elapsed_time >= 3 and not detected_for_3_seconds:
+                send_telegram_message("Person detected")
+                detected_for_3_seconds = True
         else:
             detection_start_time = None
-            detected_for_5_seconds = False
-            detected_for_5_minutes = False
+            detected_for_3_seconds = False
         
         cv2.imshow("Output", img)
         k = cv2.waitKey(200)
